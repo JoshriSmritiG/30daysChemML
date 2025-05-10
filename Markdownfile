@@ -1,0 +1,40 @@
+Day 0: Created my GitHub account
+Day 1: SMILES & Molecular Descriptor Automation using Python 🧪🧬
+## ✅ What I Learned & Implemented
+1. 🔗 Connected Google Sheets to Python using `gspread`
+- Authorized access to Google Sheets via Google Colab.
+- Pulled a live dataset containing molecule names from a shared sheet.
+2. 🔍 Fetched SMILES Strings using `PubChemPy`
+- Defined a `name_to_smiles` function to retrieve isomeric SMILES from PubChem.
+- Automatically filled in missing SMILES values for known molecules.
+- Isolated and printed names of molecules for which SMILES were missing.
+3. ⚗️ Calculated Molecular Descriptors with `RDKit`
+- Extracted the following descriptors for each molecule:
+  - **Molecular Weight**
+  - **LogP**
+  - **Topological Polar Surface Area (TPSA)**
+  - **Number of H-bond Donors**
+  - **Number of H-bond Acceptors**
+- Appended descriptors as cleanly separated columns in the DataFrame.
+4. 🔬 Categorized Polarity Based on TPSA & LogP
+- Classified compounds as:
+  - **Polar**: TPSA > 60–70 Å² and LogP < 1
+  - **Moderately Polar**: TPSA 20–70 Å² and LogP ~0–3
+  - **Non-Polar**: TPSA < 20–40 Å² and LogP > 3–4
+- Investigated misclassifications (e.g., Water) and debugged threshold logic.
+5. 🧬 Determined Biological Activity
+- Defined logic to label molecules as **Biologically Active** based on:
+  - H-bond Donors ≤ 5
+  - H-bond Acceptors ≤ 10
+- Added a new column: `Biological Activity → "Active" / "Not Active"`
+6. 📤 Synced Processed Data Back to Google Sheets
+- Used `set_with_dataframe()` to push updates to the original sheet.
+- Cleaned up unused boolean columns (e.g., `Is_Polar`, etc.).
+🛠️ Tools & Libraries Used
+- Google Colab
+- `gspread` + `gspread_dataframe`
+- `pubchempy`
+- `rdkit`
+- `pandas`
+## 💭 Reflections
+Today’s session was a strong step toward automation in cheminformatics. I learned to work with external chemical databases, structure descriptor logic programmatically, and push/pull real-time data with spreadsheets. This forms a strong base for data-driven molecular analysis projects!
